@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from "react"
+import React, { createContext } from "react"
 import useDarkMode from "../hooks/useDarkMode"
 
 interface ThemeContextProps {
