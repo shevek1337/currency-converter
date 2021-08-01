@@ -1,10 +1,25 @@
-import React, { useContext, createContext } from "react"
+import React, { createContext, useState } from "react"
 import useFetch from "../hooks/useFetch"
 
+interface Data {
+  readonly date: string
+  readonly currencies: ReadonlyArray<{
+    readonly code: string
+    readonly quantity: number
+    readonly rateFormated: string
+    readonly diffFormated: string
+    readonly rate: number
+    readonly name: string
+    readonly diff: number
+    readonly date: string
+    readonly validFromDate: string
+  }>
+}
+
 interface DataContextProps {
-  data: Object[] | null
-  loading: boolean
-  error: string | null
+  readonly data: Data[] | null
+  readonly loading: boolean
+  readonly error: string | null
 }
 
 const DataContext = createContext<DataContextProps>({
