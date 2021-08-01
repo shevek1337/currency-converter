@@ -1,7 +1,14 @@
-import React from "react";
-import Header from "./includes/Header";
-const Layout = (): React.ReactElement => {
-  return <Header />;
-};
+import React from "react"
+import Header from "./includes/Header"
+import { useGlobalContext } from "../hooks/useGlobalContext"
 
-export default Layout;
+const Layout = (): React.ReactElement => {
+  const { darkMode } = useGlobalContext()
+  return (
+    <div className={darkMode ? "dark" : "light"}>
+      <Header />
+    </div>
+  )
+}
+
+export default Layout
