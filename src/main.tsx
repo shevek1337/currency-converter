@@ -1,14 +1,14 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Layout from "./views/Layout"
-import { AppProvider } from "./hooks/useGlobalContext"
+import { ThemeContextProvider } from "./contexts/ThemeContext"
 import "./index.css"
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppProvider>
+    <ThemeContextProvider>
       <Layout />
-    </AppProvider>
+    </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 )

@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import Header from "./includes/Header"
-import { useGlobalContext } from "../hooks/useGlobalContext"
+import { ThemeContext } from "../contexts/ThemeContext"
 
 const Layout = (): React.ReactElement => {
-  const { darkMode } = useGlobalContext()
+  const { darkMode } = useContext(ThemeContext)
   return (
     <div className={darkMode ? "dark" : "light"}>
       <Header />

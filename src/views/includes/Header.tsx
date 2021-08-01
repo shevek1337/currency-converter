@@ -1,12 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import GithubIcon from "../components/GithubIcon"
 import LariIcon from "../components/LariIcon"
 import LightIcon from "../components/LightIcon"
 import DarkIcon from "../components/DarkIcon"
-import { useGlobalContext } from "../../hooks/useGlobalContext"
+import { ThemeContext } from "../../contexts/ThemeContext"
 
 const Header = (): React.ReactElement => {
-  const { darkMode, toggle } = useGlobalContext()
+  const { darkMode, toggle } = useContext(ThemeContext)
   return (
     <nav className="bg-gray-50 flex justify-center dark:bg-gray-800">
       <div className="lg:max-w-screen-lg w-full py-4 flex items-center gap-4 dark:text-white">

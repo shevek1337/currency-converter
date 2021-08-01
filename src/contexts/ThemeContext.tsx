@@ -1,12 +1,12 @@
 import React, { useContext, createContext } from "react"
-import useDarkMode from "./useDarkMode"
+import useDarkMode from "../hooks/useDarkMode"
 
-interface AppContextProps {
+interface ThemeContextProps {
   darkMode: boolean
   toggle: () => void
 }
 
-const AppContext = createContext<AppContextProps>({
+const ThemeContext = createContext<ThemeContextProps>({
   darkMode: false,
   toggle: () => null,
 })
@@ -15,24 +15,20 @@ type Props = {
   children: React.ReactNode
 }
 
-const AppProvider = (props: Props) => {
+const ThemeContextProvider = (props: Props) => {
   const { children } = props
   const { darkMode, toggle } = useDarkMode(false)
 
   return (
-    <AppContext.Provider
+    <ThemeContext.Provider
       value={{
         darkMode,
         toggle,
       }}
     >
       {children}
-    </AppContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 
-export const useGlobalContext = () => {
-  return useContext(AppContext)
-}
-
-export { AppContext, AppProvider }
+export { ThemeContext, ThemeContextProvider }
