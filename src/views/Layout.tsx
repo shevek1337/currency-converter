@@ -3,6 +3,7 @@ import Header from "./includes/Header"
 import { ThemeContext } from "../contexts/ThemeContext"
 import { DataContext } from "../contexts/DataContext"
 import Loader from "./components/Loader"
+import Page from "./includes/MainSection"
 
 const Layout = (): React.ReactElement => {
   const { darkMode } = useContext(ThemeContext)
@@ -13,6 +14,7 @@ const Layout = (): React.ReactElement => {
   return (
     <div className={darkMode ? "dark" : "light"}>
       <Header />
+      <Page />
     </div>
   )
 }
