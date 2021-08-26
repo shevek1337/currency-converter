@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react"
 
-const useFetch = (url: string) => {
+interface ReturnValues {
+  readonly data: null | JSON
+  readonly loading: boolean
+  readonly error: null | string
+}
+
+const useFetch = (url: string): ReturnValues => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
