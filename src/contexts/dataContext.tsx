@@ -1,7 +1,7 @@
 import React, { createContext, ReactElement } from "react"
 import useFetch from "../hooks/useFetch"
 
-interface Data {
+interface IData {
   readonly date: string
   readonly currencies: ReadonlyArray<{
     readonly code: string
@@ -17,7 +17,7 @@ interface Data {
 }
 
 interface DataContextProps {
-  readonly data: Data[] | undefined
+  readonly data: IData[] | undefined
   readonly error: Error | undefined
 }
 
@@ -33,7 +33,7 @@ type Props = {
 const DataContextProvider = (props: Props): ReactElement => {
   const url = "https://nbg.gov.ge/gw/api/ct/monetarypolicy/currencies/ka/json"
   const { children } = props
-  const { data, error } = useFetch<Data[]>(url)
+  const { data, error } = useFetch<IData[]>(url)
 
   return (
     <DataContext.Provider

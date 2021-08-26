@@ -1,11 +1,11 @@
 import useLocalStorage from "./useLocalStorage"
 
-interface UseDarkModeValue {
+interface IDarkMode {
   darkMode: boolean
   toggle: () => void
 }
 
-const useDarkMode = (defaultValue?: boolean): UseDarkModeValue => {
+const useDarkMode = (defaultValue?: boolean): IDarkMode => {
   const [darkMode, setDarkMode] = useLocalStorage("darkMode", defaultValue)
 
   return {

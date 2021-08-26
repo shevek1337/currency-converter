@@ -1,8 +1,13 @@
 import { Dispatch, SetStateAction, useState } from "react"
 
+interface ILocalStorage<T> {
+  readonly key: string
+  readonly initialValue?: T | (() => T)
+}
+
 const useLocalStorage = <T>(
-  key: string,
-  initialValue?: T | (() => T)
+  key: ILocalStorage<T>["key"],
+  initialValue: ILocalStorage<T>["initialValue"]
 ): [T, Dispatch<SetStateAction<T>>] => {
   const storageValue = () => {
     if (typeof window === "undefined") {

@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react"
 
-interface State<T> {
+interface IState<T> {
   readonly data?: T
   readonly error?: Error
 }
@@ -10,13 +10,13 @@ type Action<T> =
   | { type: "done"; payload: T }
   | { type: "error"; payload: Error }
 
-const useFetch = <T>(url: string): State<T> => {
-  const initialState: State<T> = {
+const useFetch = <T>(url: string): IState<T> => {
+  const initialState: IState<T> = {
     data: undefined,
     error: undefined,
   }
 
-  const fetchReducer = (state: State<T>, action: Action<T>): State<T> => {
+  const fetchReducer = (state: IState<T>, action: Action<T>): IState<T> => {
     switch (action.type) {
       case "loading":
         return { ...initialState }
