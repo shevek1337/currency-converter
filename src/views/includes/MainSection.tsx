@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { DataContext } from "../../contexts/DataContext"
+import { DataContext } from "../../contexts/dataContext"
 import chevronRight from "../../imgs/chevron-right.svg"
 import chevronDown from "../../imgs/chevron-down.svg"
 import FlagIcon from "../components/FlagIcon"

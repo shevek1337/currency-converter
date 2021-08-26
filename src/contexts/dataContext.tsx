@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, ReactElement } from "react"
 import useFetch from "../hooks/useFetch"
 
 interface Data {
@@ -17,31 +17,28 @@ interface Data {
 }
 
 interface DataContextProps {
-  readonly data: Data[] | null
-  readonly loading: boolean
-  readonly error: string | null
+  readonly data: Data[] | undefined
+  readonly error: Error | undefined
 }
 
 const DataContext = createContext<DataContextProps>({
-  data: null,
-  loading: true,
-  error: null,
+  data: undefined,
+  error: undefined,
 })
 
 type Props = {
   children: React.ReactNode
 }
 
-const DataContextProvider = (props: Props) => {
+const DataContextProvider = (props: Props): ReactElement => {
   const url = "https://nbg.gov.ge/gw/api/ct/monetarypolicy/currencies/ka/json"
   const { children } = props
-  const { data, loading, error } = useFetch(url)
+  const { data, error } = useFetch<Data[]>(url)
 
   return (
     <DataContext.Provider
       value={{
         data,
-        loading,
         error,
       }}
     >
