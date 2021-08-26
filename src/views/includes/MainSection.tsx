@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
+import React, { ReactElement, useContext } from "react"
 import { DataContext } from "../../contexts/dataContext"
 import chevronRight from "../../imgs/chevron-right.svg"
 import chevronDown from "../../imgs/chevron-down.svg"
 import FlagIcon from "../components/FlagIcon"
 
-const Page = () => {
+const Page = (): ReactElement | null => {
   const { data } = useContext(DataContext)
   if (data == null) return null
   const currencies = data[0].currencies

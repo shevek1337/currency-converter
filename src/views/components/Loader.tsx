@@ -1,6 +1,6 @@
-import React from "react"
+import React, { ReactElement } from "react"
 
-const Loader = (props: React.SVGProps<SVGSVGElement>): React.ReactElement => {
+const Loader = (props: React.SVGProps<SVGSVGElement>): ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

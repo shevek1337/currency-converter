@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import Header from "./includes/Header"
-import { ThemeContext } from "../contexts/ThemeContext"
+import { ThemeContext } from "../contexts/themeContext"
 import { DataContext } from "../contexts/dataContext"
 import Loader from "./components/Loader"
 import Page from "./includes/MainSection"

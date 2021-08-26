@@ -3,7 +3,7 @@ import GithubIcon from "../components/GithubIcon"
 import LariIcon from "../components/LariIcon"
 import LightIcon from "../components/LightIcon"
 import DarkIcon from "../components/DarkIcon"
-import { ThemeContext } from "../../contexts/ThemeContext"
+import { ThemeContext } from "../../contexts/themeContext"
 
 const Header = (): React.ReactElement => {
   const { darkMode, toggle } = useContext(ThemeContext)

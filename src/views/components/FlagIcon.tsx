@@ -1,11 +1,11 @@
-import React from "react"
+import React, { ReactElement } from "react"
 import { Georgia, Usa } from "../../imgs/countries/index"
 
 interface Props {
   readonly code: string
 }
 
-const FlagIcon = ({ code }: Props): React.ReactElement => {
+const FlagIcon = ({ code }: Props): ReactElement => {
   switch (code) {
     case "GEL":
       return <img src={Georgia} className="h-7" alt="Georgian flag" />
