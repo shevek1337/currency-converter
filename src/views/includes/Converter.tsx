@@ -1,10 +1,10 @@
 import React, { ReactElement, useContext } from "react"
 import { DataContext } from "../../contexts/dataContext"
 import chevronRight from "../../imgs/chevron-right.svg"
-import chevronDown from "../../imgs/chevron-down.svg"
 import FlagIcon from "../components/FlagIcon"
+import Dropdown from "../components/Dropdown"
 
-const Page = (): ReactElement | null => {
+const Converter = (): ReactElement | null => {
   const { data } = useContext(DataContext)
   if (data == null) return null
   const currencies = data[0].currencies
@@ -26,10 +26,7 @@ const Page = (): ReactElement | null => {
             </div>
             <img src={chevronRight} className="h-6" alt="right icon" />
             <div className="flex gap-4 items-center">
-              <button className="p-2 flex items-center gap-1 hover:bg-gray-50 rounded">
-                <FlagIcon code="USD" />
-                <img src={chevronDown} className="h-4" alt="" />
-              </button>
+              <Dropdown id="to" />
               <input
                 className="outline-none border-b h-8 dark:bg-gray-800"
                 type="text"
@@ -43,4 +40,4 @@ const Page = (): ReactElement | null => {
   )
 }
 
-export default Page
+export default Converter

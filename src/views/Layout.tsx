@@ -3,7 +3,7 @@ import Header from "./includes/Header"
 import { ThemeContext } from "../contexts/themeContext"
 import { DataContext } from "../contexts/dataContext"
 import Loader from "./components/Loader"
-import Page from "./includes/MainSection"
+import Converter from "./includes/Converter"
 
 const Layout = (): React.ReactElement => {
   const { darkMode } = useContext(ThemeContext)
@@ -14,7 +14,7 @@ const Layout = (): React.ReactElement => {
   return (
     <div className={darkMode ? "dark" : "light"}>
       <Header />
-      <Page />
+      <Converter />
     </div>
   )
 }
