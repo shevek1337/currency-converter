@@ -2,7 +2,7 @@ import React, { ReactElement, useContext } from "react"
 import { DataContext } from "../../contexts/dataContext"
 import chevronRight from "../../imgs/chevron-right.svg"
 import FlagIcon from "../components/FlagIcon"
-import Dropdown from "../components/Dropdown"
+import Select from "../components/selector/Select"
 
 const Converter = (): ReactElement | null => {
   const { data } = useContext(DataContext)
@@ -16,8 +16,7 @@ const Converter = (): ReactElement | null => {
         <div>
           <div className="flex items-center bg-white dark:bg-gray-800  p-4 gap-10 rounded-lg">
             <div className="flex gap-4 items-center">
-              <FlagIcon code="GEL" />
-
+              <Select code="GEL" />
               <input
                 className="outline-none border-b h-8 dark:bg-gray-800"
                 type="text"
@@ -26,7 +25,7 @@ const Converter = (): ReactElement | null => {
             </div>
             <img src={chevronRight} className="h-6" alt="right icon" />
             <div className="flex gap-4 items-center">
-              <Dropdown id="to" />
+              <Select code="USD" />
               <input
                 className="outline-none border-b h-8 dark:bg-gray-800"
                 type="text"
