@@ -8,7 +8,7 @@ import { ThemeContext } from "../../contexts/themeContext"
 const Header = (): React.ReactElement => {
   const { darkMode, toggle } = useContext(ThemeContext)
   return (
-    <nav className="bg-gray-50 flex justify-center dark:bg-gray-800">
+    <nav className="bg-gray-50 flex justify-center dark:bg-gray-700 shadow">
       <div className="lg:max-w-screen-lg w-full py-4 flex items-center gap-4 dark:text-white">
         <div className="flex gap-2 items-center">
           <LariIcon className="w-8 h-8" />
