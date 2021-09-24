@@ -6,9 +6,10 @@ import Options from "./Options"
 
 type Props = {
   readonly code: string
+  readonly name: string
 }
 
-const Select = ({ code }: Props): ReactElement => {
+const Select = ({ code, name }: Props): ReactElement => {
   const { isSelected, toggleDropdown } = useDropdown()
 
   return (
@@ -17,7 +18,7 @@ const Select = ({ code }: Props): ReactElement => {
         className="p-2 flex items-center gap-1 hover:bg-gray-50 rounded"
         onClick={() => toggleDropdown()}
       >
-        <FlagIcon code={code} />
+        <FlagIcon code={code} name={name} />
         <img
           src={chevronDown}
           className={isSelected ? "h-4 transform rotate-180" : "h-4"}
