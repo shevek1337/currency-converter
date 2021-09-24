@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const colors = require("tailwindcss/colors")
+const forms = require("@tailwindcss/forms")
 
 module.exports = {
   purge: [],
@@ -15,5 +16,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [forms],
 }
