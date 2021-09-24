@@ -139,6 +139,8 @@ const FlagIcon = ({ code, name }: Props): ReactElement => {
       return <img src={Uzbekistan} className="h-7" alt={name} />
     case "ZAR":
       return <img src={SouthAfrica} className="h-7" alt={name} />
+    case "SEK":
+      return <img src={Sweden} className="h-7" alt={name} />
     default:
       return <img src={Georgia} className="h-7" alt="no flag" />
   }
