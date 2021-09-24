@@ -4,6 +4,7 @@ import { ThemeContext } from "../contexts/themeContext"
 import { DataContext } from "../contexts/dataContext"
 import Loader from "./components/Loader"
 import Converter from "./includes/Converter"
+import Table from "./includes/Table"
 
 const Layout = (): React.ReactElement => {
   const { darkMode } = useContext(ThemeContext)
@@ -15,6 +16,7 @@ const Layout = (): React.ReactElement => {
     <div className={darkMode ? "dark" : "light"}>
       <Header />
       <Converter />
+      <Table />
     </div>
   )
 }
