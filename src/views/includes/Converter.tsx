@@ -24,7 +24,7 @@ const Converter = (): ReactElement | null => {
                 type="text"
                 name="price"
                 id="price"
-                className="dark:focus:ring-gray-500 dark:focus:bg-gray-800 dark:bg-gray-600 block w-full pl-12 pr-12 text-2xl border-gray-300 dark:border-gray-500 rounded-md dark:placeholder-gray-400"
+                className="pb-1 dark:focus:ring-gray-500 dark:focus:bg-gray-800 dark:bg-gray-600 block w-full pl-12 pr-12 text-2xl border-gray-300 dark:border-gray-500 rounded-md dark:placeholder-gray-400"
                 placeholder="0.00"
               />
             </div>
@@ -39,7 +39,7 @@ const Converter = (): ReactElement | null => {
                 type="text"
                 name="price"
                 id="price"
-                className="dark:focus:ring-gray-500 dark:focus:bg-gray-800 dark:bg-gray-600 block w-full pl-12 pr-12 text-2xl border-gray-300 dark:border-gray-500 rounded-md dark:placeholder-gray-400"
+                className="pb-1 dark:focus:ring-gray-500 dark:focus:bg-gray-800 dark:bg-gray-600 block w-full pl-12 pr-12 text-2xl border-gray-300 dark:border-gray-500 rounded-md dark:placeholder-gray-400"
                 placeholder="0.00"
               />
               <div className="absolute inset-y-0 right-0 flex items-center">
