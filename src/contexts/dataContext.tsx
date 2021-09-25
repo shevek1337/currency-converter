@@ -19,11 +19,13 @@ interface IData {
 interface DataContextProps {
   readonly data: IData[] | undefined
   readonly error: Error | undefined
+  readonly loading: boolean
 }
 
 const DataContext = createContext<DataContextProps>({
   data: undefined,
   error: undefined,
+  loading: true,
 })
 
 type Props = {
@@ -33,13 +35,14 @@ type Props = {
 const DataContextProvider = (props: Props): ReactElement => {
   const url = "https://nbg.gov.ge/gw/api/ct/monetarypolicy/currencies/ka/json"
   const { children } = props
-  const { data, error } = useFetch<IData[]>(url)
+  const { data, error, loading } = useFetch<IData[]>(url)
 
   return (
     <DataContext.Provider
       value={{
         data,
         error,
+        loading,
       }}
     >
       {children}

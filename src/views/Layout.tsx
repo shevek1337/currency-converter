@@ -8,9 +8,9 @@ import Table from "./includes/Table"
 
 const Layout = (): React.ReactElement => {
   const { darkMode } = useContext(ThemeContext)
-  const { data } = useContext(DataContext)
+  const { loading } = useContext(DataContext)
 
-  if (data == null) return <Loader className="flex m-auto h-screen" />
+  if (loading) return <Loader className="flex m-auto h-screen" />
 
   return (
     <div className={darkMode ? "dark" : "light"}>

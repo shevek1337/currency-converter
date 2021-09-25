@@ -3,6 +3,7 @@ import { useEffect, useReducer } from "react"
 interface IState<T> {
   readonly data?: T
   readonly error?: Error
+  readonly loading: boolean
 }
 
 type Action<T> =
@@ -14,6 +15,7 @@ const useFetch = <T>(url: string): IState<T> => {
   const initialState: IState<T> = {
     data: undefined,
     error: undefined,
+    loading: true,
   }
 
   const fetchReducer = (state: IState<T>, action: Action<T>): IState<T> => {
@@ -21,9 +23,9 @@ const useFetch = <T>(url: string): IState<T> => {
       case "loading":
         return { ...initialState }
       case "done":
-        return { ...initialState, data: action.payload }
+        return { ...initialState, data: action.payload, loading: false }
       case "error":
-        return { ...initialState, error: action.payload }
+        return { ...initialState, error: action.payload, loading: false }
       default:
         return state
     }
