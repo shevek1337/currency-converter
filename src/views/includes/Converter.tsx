@@ -48,7 +48,7 @@ const Converter = (): ReactElement | null => {
                 </label>
                 <div className="relative">
                   <button
-                    className="flex gap-1 items-center focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-4 border-transparent bg-transparent text-gray-500 text-2xl rounded-md dark:text-gray-100"
+                    className="flex gap-1 pt-1 items-center focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-4 border-transparent bg-transparent text-gray-500 text-2xl rounded-md dark:text-gray-100"
                     onClick={() => toggleDropdown()}
                   >
                     USD
@@ -90,7 +90,7 @@ const Options = ({ isSelected, currencies }: OptionsProps): ReactElement => {
   return (
     <div className={isSelected ? "block absolute right-0" : "hidden"}>
       <ul
-        className={`mt-3 w-max bg-white dark:bg-gray-500 border border-white  dark:border-gray-500 shadow-lg max-h-72 rounded-md ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none `}
+        className={`mt-3 mr-0.5 w-max bg-white dark:bg-gray-500 border border-white  dark:border-gray-500 shadow-lg max-h-72 rounded-md ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none `}
         role="listbox"
         aria-labelledby="listbox-label"
         aria-activedescendant="listbox-option-3"
@@ -105,7 +105,7 @@ const Options = ({ isSelected, currencies }: OptionsProps): ReactElement => {
         />
         {currencies.map((currency) => (
           <li
-            className="text-gray-600 dark:text-white cursor-pointer select-none relative py-2 pl-3 pr-3 hover:bg-indigo-700 dark:hover:bg-gray-700 hover:text-white font-bold"
+            className="text-gray-600 dark:text-white cursor-pointer select-none relative py-2 pl-3 pr-3 hover:bg-indigo-700 dark:hover:bg-gray-700 hover:text-white"
             id="listbox-option-0"
             role="option"
             key={currency.code}
@@ -113,10 +113,12 @@ const Options = ({ isSelected, currencies }: OptionsProps): ReactElement => {
           >
             <div className="flex items-center">
               <FlagIcon code={currency.code} name={currency.name} />
-              <span className="ml-3 block truncate">{currency.code}</span>
+              <span className="ml-3 block truncate pt-1 font-bold">
+                {currency.code}
+              </span>
               <span className="ml-3 block truncate">
-                {currency.name.slice(0, 19)}
-                {currency.name.length > 19 && "..."}
+                {currency.name.slice(0, 28)}
+                {currency.name.length > 28 && "..."}
               </span>
             </div>
           </li>

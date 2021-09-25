@@ -42,7 +42,10 @@ const Table = (): React.ReactElement | null => {
           </thead>
           <tbody className="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600">
             {currencies.map((currency) => (
-              <tr key={currency.code}>
+              <tr
+                key={currency.code}
+                className="hover:bg-gray-50 dark:hover:bg-gray-600"
+              >
                 <td className="px-6 py-4 whitespace-nowrap center">
                   <FlagIcon
                     code={currency.code}
@@ -50,7 +53,9 @@ const Table = (): React.ReactElement | null => {
                     className="mx-auto"
                   />
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">{currency.code}</td>
+                <td className="px-6 pt-1.5 whitespace-nowrap font-bold">
+                  {currency.code}
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap">{currency.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <span
