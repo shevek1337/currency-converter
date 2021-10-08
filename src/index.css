@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "BPG Square 38 CCond";
-  src: url("../public/fonts/BPG Square 38 CCond.ttf") format("truetype"); /* Safari, Android, iOS */
+  src: url("./fonts/BPG Square 38 CCond.ttf") format("truetype"); /* Safari, Android, iOS */
 }
 
 body {

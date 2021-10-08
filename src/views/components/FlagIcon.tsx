@@ -44,7 +44,7 @@ import {
   UnitedKingdom,
   Usa,
   Uzbekistan,
-} from "../../../public/imgs/countries/index"
+} from "../../imgs/countries"
 
 interface Props {
   readonly code: string
