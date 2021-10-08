@@ -1,5 +1,5 @@
-import React, { ReactElement, useContext } from "react"
-import { DataContext } from "../../contexts/dataContext"
+import React, { ReactElement, useContext, useState } from "react"
+import { DataContext, IData } from "../../contexts/dataContext"
 import useDropdown from "../../hooks/useDropdown"
 import ChevronDownIcon from "../components/ChevronDownIcon"
 import ChevronRightIcon from "../components/ChevronRightIcon"
@@ -10,6 +10,9 @@ const Converter = (): ReactElement | null => {
   if (data == null) return null
   const { isSelected, toggleDropdown, ref } = useDropdown<"div">()
   const currencies = data[0].currencies
+  const [filteredCurrencies, setFilteredCurrencies] = useState<
+    IData["currencies"]
+  >([])
 
   return (
     <div className="flex justify-center dark:bg-gray-800 dark:text-white">
@@ -68,6 +71,7 @@ const Converter = (): ReactElement | null => {
                       role="listbox"
                       aria-labelledby="listbox-label"
                       aria-activedescendant="listbox-option-3"
+                      style={{ minWidth: "380px" }}
                     >
                       <input
                         type="text"
@@ -76,30 +80,63 @@ const Converter = (): ReactElement | null => {
                         className="dark:focus:ring-gray-500 focus:ring-0 focus:bg-gray-50 dark:focus:bg-gray-800 dark:bg-gray-700 block w-full border-b border-0 rounded-tl-md dark:placeholder-gray-400"
                         placeholder="ვალუტის ძებნა..."
                         autoComplete="off"
+                        onChange={(e) =>
+                          setFilteredCurrencies(
+                            currencies.filter(
+                              (c) =>
+                                c.name.toLowerCase().match(e.target.value) ||
+                                c.code.toLowerCase().match(e.target.value)
+                            )
+                          )
+                        }
                       />
-                      {currencies.map((currency) => (
-                        <li
-                          className="text-gray-600 dark:text-white cursor-pointer select-none relative py-2 pl-3 pr-3 hover:bg-indigo-700 dark:hover:bg-gray-700 hover:text-white"
-                          id="listbox-option-0"
-                          role="option"
-                          key={currency.code}
-                          title={currency.name}
-                        >
-                          <div className="flex items-center">
-                            <FlagIcon
-                              code={currency.code}
-                              name={currency.name}
-                            />
-                            <span className="ml-3 block truncate pt-1 font-bold">
-                              {currency.code}
-                            </span>
-                            <span className="ml-3 block truncate">
-                              {currency.name.slice(0, 28)}
-                              {currency.name.length > 28 && "..."}
-                            </span>
-                          </div>
-                        </li>
-                      ))}
+                      {filteredCurrencies.length === 0
+                        ? currencies.map((currency) => (
+                            <li
+                              className="text-gray-600 dark:text-white cursor-pointer select-none relative py-2 pl-3 pr-3 hover:bg-indigo-700 dark:hover:bg-gray-700 hover:text-white"
+                              id="listbox-option-0"
+                              role="option"
+                              key={currency.code}
+                              title={currency.name}
+                            >
+                              <div className="flex items-center">
+                                <FlagIcon
+                                  code={currency.code}
+                                  name={currency.name}
+                                />
+                                <span className="ml-3 block truncate pt-1 font-bold">
+                                  {currency.code}
+                                </span>
+                                <span className="ml-3 block truncate">
+                                  {currency.name.slice(0, 29)}
+                                  {currency.name.length > 29 && "..."}
+                                </span>
+                              </div>
+                            </li>
+                          ))
+                        : filteredCurrencies.map((currency) => (
+                            <li
+                              className="text-gray-600 dark:text-white cursor-pointer select-none relative py-2 pl-3 pr-3 hover:bg-indigo-700 dark:hover:bg-gray-700 hover:text-white"
+                              id="listbox-option-0"
+                              role="option"
+                              key={currency.code}
+                              title={currency.name}
+                            >
+                              <div className="flex items-center">
+                                <FlagIcon
+                                  code={currency.code}
+                                  name={currency.name}
+                                />
+                                <span className="ml-3 block truncate pt-1 font-bold">
+                                  {currency.code}
+                                </span>
+                                <span className="ml-3 block truncate">
+                                  {currency.name.slice(0, 29)}
+                                  {currency.name.length > 29 && "..."}
+                                </span>
+                              </div>
+                            </li>
+                          ))}
                     </ul>
                   </div>
                 </div>

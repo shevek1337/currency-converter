@@ -1,7 +1,7 @@
 import React, { createContext, ReactElement } from "react"
 import useFetch from "../hooks/useFetch"
 
-interface IData {
+export interface IData {
   readonly date: string
   readonly currencies: ReadonlyArray<{
     readonly code: string
